@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <title>RPG</title>
+
+        <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="{{ url_for('static', filename='style/home.css') }}">
+    </head>
+
+    <body>
+        <div class="tittle">
+            <h1>RPG</h1>
+            <p>Sistema de gerenciamento do mundo, personagens, campanhas e criaturas.</p>
+            
+            <h2>📜 Campanhas</h2>
+            <p>Qual campanha vamos jogar hoje?</p>
+        </div>
+
+        <div class="cards">
+            {% for campanha in campanhas %}
+                <div class='card'>
+                    <h2>{{campanha.nome}}</h2>
+                    <p>{{campanha.descricao}}</p>
+                    <span>Mestre: {{campanha.mestre}}</span>
+                </div>
+            {% endfor %}
+        </div>
+    </body>
+</html>
