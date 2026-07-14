@@ -4,9 +4,10 @@
         <meta charset='UTF-8'>
         <title>RPG</title>
 
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
         <link href='https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@300;400;500&display=swap' rel='stylesheet'>
+        <link rel='stylesheet' href='{{ url_for("static", filename="styles/main.css") }}'>
         <link rel='stylesheet' href='{{ url_for("static", filename="styles/home.css") }}'>
-        <script src="{{ url_for('static', filename='scripts/home.js') }}"></script>
     </head>
 
     <body>
@@ -14,31 +15,71 @@
             <h1>RPG</h1>
             <p>Sistema de gerenciamento do mundo, personagens, campanhas e criaturas.</p>
             <h2>📜 Campanhas</h2>
-            <p>Qual campanha vamos jogar?</p>
+            <p>Qual campanha vamos jogar hoje?</p>
         </div>
 
         <div class='btn-criar-campanha'>
-            <button onclick='abrirModal()' title="Criar nova campanha">Nova campanha</button>
+            <button onclick='abrirModal()' title='Criar nova campanha'>
+                <span class="material-symbols-outlined">add</span>
+            </button>
         </div>
 
         <div id='modal-campanha' class='modal'>
             <div class='conteudo-modal'>
                 <h2>Nova Campanha</h2>
-                <input type='text' id='nome' placeholder='Nome da campanha'>
+                <input type='text' id='nome' placeholder='Nome'>
+                <input type='text' id='mestre' placeholder='Mestre'>
+                <div id="toast"></div>
                 <textarea id='descricao' placeholder='Descrição'></textarea>
-                <button onclick='salvarCampanha()'>Criar</button>
-                <button onclick='fecharModal()'>Cancelar</button>
+
+                <div class="datas-modal">
+                    <div class="grupo-campo">
+                        <label for="data-inicio">Data de início</label>
+                        <input type="date" id="data-inicio">
+                    </div>
+                    <div class="grupo-campo">
+                        <label for="data-fim">Data de término</label>
+                        <input type="date" id="data-fim">
+                    </div>
+                </div>
+
+                <div class='btn-conteudo-modal'>
+                    <button onclick='salvarCampanha()'>Criar</button>
+                    <button onclick='fecharModal()'>Cancelar</button>
+                </div>
+
             </div>
         </div>
 
         <div class='cards'>
             {% for campanha in campanhas %}
-                <a class='card' href='{{ url_for("home", campanha_id=campanha.id) }}'>
-                    <h2>{{campanha.nome}}</h2>
-                    <p>{{campanha.descricao}}</p>
-                    <span>Mestre: {{campanha.mestre}}</span>
+                <a class='card' href='{{ url_for("lobby", campanha_id=campanha.id) }}'>
+                    <div class='btns-card'>
+                        <button class="btn-excluir" onclick="event.preventDefault(); event.stopPropagation(); abrirModalExcluir('{{ campanha.id }}')">
+                            <span class="material-symbols-outlined">delete</span>
+                        </button>
+                    </div>
+                    <h2>{{ campanha.nome }}</h2>
+                    <p>{{ campanha.descricao }}</p>
+                    <span>Mestre: {{ campanha.mestre }}</span>
                 </a>
             {% endfor %}
         </div>
+
+        <div id="toast-sucesso"></div>
+        <div id="toast"></div>
+
+        <div id='modal-confirmar' class='modal'>
+            <div class='conteudo-modal'>
+                <h2>Excluir</h2>
+                <p>Tem certeza que deseja excluir?</p>
+                <div class='btn-conteudo-modal'>
+                    <button onclick='confirmarExclusao()'>Excluir</button>
+                    <button onclick='document.getElementById("modal-confirmar").classList.remove("show");'>Cancelar</button>
+                </div>
+            </div>
+        </div>
+
+        <script src="{{ url_for('static', filename='scripts/home.js') }}"></script>
     </body>
 </html>

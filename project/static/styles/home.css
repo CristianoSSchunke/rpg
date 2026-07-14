@@ -1,101 +1,20 @@
-body{
-    font-family:'Inter',sans-serif;
-    background:#0f1117;
-    color:white;
-    min-height:100vh;
-    padding:40px;
-    margin:0;
-    box-sizing:border-box;
-}
-
-.tittle{
-    text-align:center;
-    margin-bottom:60px;
-}
-
-.tittle h1{
-    font-family:'Cinzel',serif;
-    font-size:64px;
-    letter-spacing:4px;
-    margin-bottom:15px;
-    color:#d9b96f;
-}
-.tittle h2{
-    font-family:'Cinzel',serif;
-    font-size:34px;
-    letter-spacing:4px;
-    margin-bottom:15px;
-    color:#d9b96f;
-}
-
-.cards{
-    max-width:1200px;
-    margin:auto;
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-    gap:25px;
-}
-
-.card{
-    background:#1b1f2b;
-    border:1px solid #2b3244;
-    border-radius:16px;
-    padding:30px;
-    text-decoration:none;
-    color:white;
-    transition:.25s;
-}
-
-.card:hover{
-    transform:translateY(-8px);
-    border-color:#d9b96f;
-    box-shadow:0 15px 30px rgba(0,0,0,.4);
-}
-
-.card h2{
-    margin-bottom:15px;
-    color:#d9b96f;
-}
-
-.card span{
-    color:#b5b5b5;
-    line-height:1.6;
-}
-
-.modal{
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.5);
-    justify-content: center;
-    align-items: center;
-}
-
-.modal.show{
-    display: flex;
-}
-
-.conteudo-modal{
-    background: white;
-    padding: 30px;
-    border-radius: 10px;
-}
-
+/*NOVA CAMPANHA*/
 .btn-criar-campanha{
     text-align: right;
     margin-bottom: 30px;
 }
 
 .btn-criar-campanha button{
-    padding: 8px;
+    padding: 5px;
     color: #b5b5b5;
     background: #1b1f2b;
     border-radius: 8px;
-    border: none;
     font-family: 'Inter', sans-serif;
     border:1px solid #2b3244;
     cursor: pointer;
     transition:.25s;
+    width: 40px;
+    height: 40px;
 }
 
 .btn-criar-campanha button:hover{
@@ -103,4 +22,35 @@ body{
     border-color:#d9b96f;
     box-shadow:0 15px 30px rgba(0,0,0,.4);
     color: white;
+}
+
+.btns-card{
+    text-align: right;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+}
+
+.card button{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: -15px;
+}
+
+.btn-excluir{
+    color: #b5b5b5;
+    background: #1b1f2b;
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    border: none;
+    cursor: pointer;
+    transition:.25s;
+    width: 40px;
+    height: 40px;
+}
+
+.btn-excluir :hover{
+    border-color:#d9b96f;
+    color: rgb(218, 22, 22);
 }
