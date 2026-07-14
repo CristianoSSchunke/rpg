@@ -61,3 +61,46 @@ body{
     color:#b5b5b5;
     line-height:1.6;
 }
+
+.modal{
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal.show{
+    display: flex;
+}
+
+.conteudo-modal{
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.btn-criar-campanha{
+    text-align: right;
+    margin-bottom: 30px;
+}
+
+.btn-criar-campanha button{
+    padding: 8px;
+    color: #b5b5b5;
+    background: #1b1f2b;
+    border-radius: 8px;
+    border: none;
+    font-family: 'Inter', sans-serif;
+    border:1px solid #2b3244;
+    cursor: pointer;
+    transition:.25s;
+}
+
+.btn-criar-campanha button:hover{
+    transform:translateY(-2px);
+    border-color:#d9b96f;
+    box-shadow:0 15px 30px rgba(0,0,0,.4);
+    color: white;
+}
