@@ -6,11 +6,45 @@ body{
     padding:40px;
     margin:0;
     box-sizing:border-box;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: center;
+}
+
+nav{
+    width: 100%;
+}
+
+.conteiner-pag{
+    display: flex;
+    width: 68%;
+    flex-direction: column;
+}
+
+.btn-voltar{
+    display: inline-table;
+    padding: 8px;
+    color: #b5b5b5;
+    background: #1b1f2b;
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    border: 1px solid #2b3244;
+    cursor: pointer;
+    transition: .25s;
+    width: auto;
+    height: auto;
+}
+
+.btn-voltar:hover{
+    transform:translateY(-2px);
+    border-color:#d9b96f;
+    box-shadow:0 15px 30px rgba(0,0,0,.4);
+    color: white;
 }
 
 .tittle{
     text-align:center;
-    margin-bottom:60px;
 }
 
 .tittle h1{
@@ -19,6 +53,7 @@ body{
     letter-spacing:4px;
     margin-bottom:15px;
     color:#d9b96f;
+    margin-top: 10px;
 }
 
 .tittle h2{
@@ -80,7 +115,6 @@ body{
 /*CARDS*/
 .cards{
     max-width:1200px;
-    margin:auto;
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
     gap:25px;
@@ -136,57 +170,21 @@ body{
     background: #1b1f2b;
     padding: 30px;
     border-radius: 10px;
-    border:1px solid #2b3244;
-    transition:.25s;
+    border: 1px solid #2b3244;
+    transition: .25s;
     display: flex;
     flex-direction: column;
     align-items: stretch;
 }
 
 .conteudo-modal h2{
-    font-family:'Cinzel',serif;
-    font-size:34px;
-    letter-spacing:4px;
-    margin-bottom:15px;
-    color:#d9b96f;
+    font-family: 'Cinzel', serif;
+    font-size: 34px;
+    letter-spacing: 4px;
+    margin-bottom: 25px;
+    color: #d9b96f;
     display: flex;
-    align-content: flex-start;
     justify-content: center;
-}
-
-.conteudo-modal input, textarea{
-    font-family:'Inter',sans-serif;
-    font-size: 20px;
-    margin-bottom: 15px;
-    color: #ffffffb4;
-    background: #434355;
-    border-radius: 5px;
-    border:1px solid #2b3244;
-    padding: 6px;
-    overflow: hidden;
-}
-
-.datas-modal {
-    display: flex;
-    flex-direction: row;
-    gap: 20px;
-}
-
-.grupo-campo {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-}
-
-.grupo-campo input {
-    padding: 6px 10px;
-    border:1px solid #2b3244;
-    border-radius: 4px;
-}
-
-.conteudo-modal label{
-    font-size: 15px;
-    color: #838180;
 }
 
 .btn-conteudo-modal{
@@ -200,7 +198,6 @@ body{
     color: #b5b5b5;
     background: #1b1f2b;
     border-radius: 8px;
-    border: none;
     font-family: 'Inter', sans-serif;
     border:1px solid #2b3244;
     cursor: pointer;
@@ -214,4 +211,109 @@ body{
     border-color:#d9b96f;
     box-shadow:0 15px 30px rgba(0,0,0,.4);
     color: white;
+}
+
+/*INPUTS*/
+.input-group{
+    width:100%;
+    margin-bottom:20px;
+}
+
+.input-group label{
+    display:block;
+    margin-bottom:8px;
+    color:#cfcfcf;
+    font-size:14px;
+    font-weight:500;
+    font-family:'Inter',sans-serif;
+}
+
+.input-group input,
+.conteudo-modal textarea{
+    width:100%;
+    box-sizing:border-box;
+    padding:12px 14px;
+    font-size:15px;
+    font-family:'Inter',sans-serif;
+    color:#fff;
+    background:#434355;
+    border:1px solid #2b3244;
+    border-radius:8px;
+    outline:none;
+    transition:.2s;
+}
+
+.input-group input::placeholder,
+.conteudo-modal textarea::placeholder{
+    color:#8d8d98;
+}
+
+.input-group input:hover,
+.conteudo-modal textarea:hover{
+    border-color:#505a73;
+}
+
+.input-group input:focus,
+.conteudo-modal textarea:focus{
+    border-color:#d9b96f;
+}
+
+.input-group input[type='number']::-webkit-outer-spin-button,
+.input-group input[type='number']::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.input-group input[type='number']{
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+.duplas-modal{
+    display: flex;
+    gap: 16px;
+}
+
+.duplas-modal .input-group{
+    flex: 1;
+}
+
+/*RADIO GROUP*/
+.radio-group{
+    display:flex;
+    gap:25px;
+    margin-bottom: 15px;
+}
+
+.radio-group input{
+    display:none;
+}
+
+.radio-option{
+    display:flex;
+    align-items:center;
+    gap:6px;
+
+    cursor:pointer;
+    user-select:none;
+
+    color:#9b9b9b;
+    transition:.2s;
+}
+
+.radio-option .material-symbols-outlined{
+    font-size:24px;
+    transition:.2s;
+}
+
+.radio-option:hover{
+    color:#ffffff;
+}
+
+.radio-group input:checked + .radio-option{
+    color: #ffffffc9;
+}
+
+.radio-group input:checked + .radio-option .material-symbols-outlined{
+    font-variation-settings: 'FILL' 1;
 }

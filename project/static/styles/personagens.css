@@ -1,0 +1,24 @@
+.btn-criar-personagem{
+    text-align: right;
+    margin-bottom: 30px;
+}
+
+.btn-criar-personagem button{
+    padding: 5px;
+    color: #b5b5b5;
+    background: #1b1f2b;
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    border:1px solid #2b3244;
+    cursor: pointer;
+    transition:.25s;
+    width: 40px;
+    height: 40px;
+}
+
+.btn-criar-personagem button:hover{
+    transform:translateY(-2px);
+    border-color:#d9b96f;
+    box-shadow:0 15px 30px rgba(0,0,0,.4);
+    color: white;
+}

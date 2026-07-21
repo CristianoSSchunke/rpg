@@ -6,25 +6,49 @@
 
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
         <link href='https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@300;400;500&display=swap' rel='stylesheet'>
-        <link rel='stylesheet' href='{{ url_for("static", filename="styles/main.css") }}'>
-        <link rel='stylesheet' href='{{ url_for("static", filename="styles/home.css") }}'>
-    </head>
 
+        <link rel='stylesheet' href='{{ url_for("static", filename="styles/main.css") }}'>
+        <link rel='stylesheet' href='{{ url_for("static", filename="styles/lobby.css") }}'>
+    </head>
     <body>
+        <nav>
+            <a href="{{ url_for('home') }}" class='btn-voltar'>
+                <span class="material-symbols-outlined">arrow_back</span>
+            </a>
+        </nav>
+        
         <div class='tittle'>
-            <h1>RPG</h1>
-        <div class='cards'>
-            {% for campanha in campanhas %}
-                <a class='card' href='{{ url_for("lobby", campanha_id=campanha.id) }}'>
-                    <div class='btns-card'>
-                        <button class="btn-excluir" onclick="event.preventDefault(); event.stopPropagation(); abrirModalExcluir('{{ campanha.id }}')">
-                            <span class="material-symbols-outlined">delete</span>
-                        </button>
-                    </div>
-                    <h2>{{ campanha.nome }}</h2>
-                    <p>{{ campanha.descricao }}</p>
-                    <span>Mestre: {{ campanha.mestre }}</span>
-                </a>
-            {% endfor %}
+            <h1>{{ campanha.nome }}</h1>
+            <h2>Lobby</h2>
         </div>
+        <div class='cards-lobby'>
+            <a class='card' href='{{ url_for("personagens", campanha_id=campanha.id) }}'>
+                <div class='lobby-icones'>
+                    <span class="material-symbols-outlined">directions_walk</span>
+                    <p>Personagens</p>
+                </div>
+            </a>
+            <a class='card' href='{{ url_for("lobby", campanha_id=campanha.id) }}'>
+                <div class='lobby-icones'>
+                    <span class="material-symbols-outlined">elderly</span>
+                    <p>NPCs</p>
+                </div>
+            </a>
+            <a class='card' href='{{ url_for("lobby", campanha_id=campanha.id) }}'>
+                <div class='lobby-icones'>
+                    <span class="material-symbols-outlined">pet_supplies</span>
+                    <p>Bestiário</p>
+                </div>
+            </a>
+            <a class='card' href='{{ url_for("lobby", campanha_id=campanha.id) }}'>
+                <div class='lobby-icones'>
+                    <span class="material-symbols-outlined">map</span>
+                    <p>Mapas</p>
+                </div>
+            </a>
+        </div>
+    
+        <script src="{{ url_for('static', filename='scripts/main.js') }}"></script>
+        <script src="{{ url_for('static', filename='scripts/lobby.js') }}"></script>
+    </body>
 </html>

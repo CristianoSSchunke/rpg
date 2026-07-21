@@ -1,0 +1,21 @@
+.cards-lobby{
+    max-width:800px;
+    margin: 20px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:25px;
+}
+
+.lobby-icones{
+    font-size: 25px;
+    font-family: 'Cinzel', serif;
+    margin: -20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.lobby-icones span{
+    font-size: 50px;
+    margin-bottom: -10px;
+}

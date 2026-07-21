@@ -1,22 +1,3 @@
-function mostrarErro(texto) {
-    const toast = document.getElementById("toast");
-
-    toast.textContent = texto;
-    toast.classList.add("show");
-
-    setTimeout(() => {
-        toast.classList.remove("show");
-    }, 3000);
-}
-
-function abrirModal() {
-    document.getElementById('modal-campanha').classList.add('show');
-}
-
-function fecharModal() {
-    document.getElementById('modal-campanha').classList.remove('show');
-}
-
 async function salvarCampanha() {
     if (!document.getElementById('nome').value.trim() || !document.getElementById('mestre').value.trim()) {
         mostrarErro('A campanha deve ter um nome e um mestre.');
@@ -46,21 +27,12 @@ async function salvarCampanha() {
     }
 }
 
-let campanhaSelecionada = null;
 function abrirModalExcluir(id) {
     campanhaSelecionada = id;
     document.getElementById('modal-confirmar').classList.add('show');
 }
 
-function mostrarSucesso(texto){
-    const toast = document.getElementById("toast-sucesso");
-    toast.innerHTML = "✅ " + texto;
-    toast.classList.add("show");
-    setTimeout(()=>{
-        toast.classList.remove("show");
-    },3000);
-}
-
+let campanhaSelecionada = null;
 async function confirmarExclusao() {
     const resposta = await fetch('/campanha/excluir', {
         method: 'DELETE',
@@ -71,13 +43,12 @@ async function confirmarExclusao() {
     });
 
     if (resposta.ok) {
+        document.getElementById('modal-confirmar').classList.remove('show');
 
-    document.getElementById('modal-confirmar').classList.remove('show');
-
-    mostrarSucesso("Campanha excluída com sucesso!");
-    setTimeout(() => {
-        location.reload();
-    }, 1000);
+        mostrarSucesso("Campanha excluída com sucesso!");
+        setTimeout(() => {
+            location.reload();
+        }, 1000);
     } else {
         document.getElementById('modal-confirmar').classList.remove('show');
         mostrarErro("Erro ao excluir a campanha.");
